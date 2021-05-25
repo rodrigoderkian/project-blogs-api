@@ -19,11 +19,17 @@ const checkIfEmailIsValid = (email) => {
   }
 };
 
-const checkIfEmailExist = (email) => {
+const checkIfEmailAndPasswordExist = (email, password) => {
   if (!email) {
     throw new CustomError({
       status: 400,
       message: '"email" is required',
+    });
+  }
+  if (!password) {
+    throw new CustomError({
+      status: 400,
+      message: '"password" is required',
     });
   }
 };
@@ -33,15 +39,6 @@ const checkIfPasswordHave6Chars = (password) => {
     throw new CustomError({
       status: 400,
       message: '"password" length must be 6 characters long',
-    });
-  }
-};
-
-const checkIfPasswordExist = (password) => {
-  if (!password) {
-    throw new CustomError({
-      status: 400,
-      message: '"password" is required',
     });
   }
 };
@@ -58,8 +55,7 @@ const checkIfEmailAlreadyExist = (verifyEmail) => {
 module.exports = {
   checkIfDisplayNameHave8Chars,
   checkIfEmailIsValid,
-  checkIfEmailExist,
   checkIfPasswordHave6Chars,
-  checkIfPasswordExist,
   checkIfEmailAlreadyExist,
+  checkIfEmailAndPasswordExist,
 };
