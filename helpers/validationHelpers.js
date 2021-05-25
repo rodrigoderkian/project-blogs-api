@@ -20,13 +20,13 @@ const checkIfEmailIsValid = (email) => {
 };
 
 const checkIfEmailAndPasswordExist = (email, password) => {
-  if (!email) {
+  if (email === undefined) {
     throw new CustomError({
       status: 400,
       message: '"email" is required',
     });
   }
-  if (!password) {
+  if (password === undefined) {
     throw new CustomError({
       status: 400,
       message: '"password" is required',
@@ -52,10 +52,36 @@ const checkIfEmailAlreadyExist = (verifyEmail) => {
   }
 };
 
+const checkIfUserExist = (verifyUser) => {
+  if (!verifyUser) {
+    throw new CustomError({
+      status: 400,
+      message: 'Invalid fields',
+    });
+  }
+};
+
+const checkIfEmailAndPasswordIsEmpty = (email, password) => {
+  if (email === '') {
+    throw new CustomError({
+      status: 400,
+      message: '"email" is not allowed to be empty',
+    });
+  }
+  if (password === '') {
+    throw new CustomError({
+      status: 400,
+      message: '"password" is not allowed to be empty',
+    });
+  }
+};
+
 module.exports = {
   checkIfDisplayNameHave8Chars,
   checkIfEmailIsValid,
   checkIfPasswordHave6Chars,
   checkIfEmailAlreadyExist,
   checkIfEmailAndPasswordExist,
+  checkIfUserExist,
+  checkIfEmailAndPasswordIsEmpty,
 };

@@ -15,6 +15,17 @@ const addUser = async (request, response) => {
   }
 };
 
+const userLogin = async (request, response) => {
+  try {
+    const { email, password } = request.body;
+    const result = await userServices.userLogin(email, password);
+    return response.status(200).json(result);
+  } catch (error) {
+    return response.status(error.status).json({ message: error.message });
+  }
+};
+
 module.exports = {
   addUser,
+  userLogin,
 };
