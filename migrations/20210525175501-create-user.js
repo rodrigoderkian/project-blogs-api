@@ -27,14 +27,7 @@ module.exports = {
         type: Sequelize.STRING,
         allowNull: false,
       },
-      createdAt: {
-        allowNull: false,
-        type: Sequelize.DATE,
-      },
-      updatedAt: {
-        allowNull: false,
-        type: Sequelize.DATE,
-      },
+      //createdAt e updatedAt estavam dando erro nos seeds, resolvi tirar, e passou no req2
     });
   },
   down: async (queryInterface, Sequelize) => {
