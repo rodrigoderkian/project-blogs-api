@@ -85,6 +85,15 @@ const checkIfUserIdExist = (id) => {
   }
 };
 
+const checkIfNameExist = (name) => {
+  if (name === undefined) {
+    throw new CustomError({
+      status: 400,
+      message: '"name" is required',
+    });
+  }
+};
+
 module.exports = {
   checkIfDisplayNameHave8Chars,
   checkIfEmailIsValid,
@@ -94,4 +103,5 @@ module.exports = {
   checkIfUserExist,
   checkIfEmailAndPasswordIsEmpty,
   checkIfUserIdExist,
+  checkIfNameExist,
 };

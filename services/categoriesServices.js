@@ -1,0 +1,12 @@
+const { Category } = require('../models');
+const { validationHelpers } = require('../helpers');
+
+const addCategory = async (name) => {
+  validationHelpers.checkIfNameExist(name);
+  const result = await Category.create({ name });
+  return result;
+};
+
+module.exports = {
+  addCategory,
+};
