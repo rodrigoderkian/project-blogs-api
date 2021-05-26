@@ -25,7 +25,17 @@ const userLogin = async (request, response) => {
   }
 };
 
+const getUsers = async (request, response) => {
+  try {
+    const result = await userServices.getUsers();
+    return response.status(200).json(result);
+  } catch (error) {
+    return response.status(error.status).json({ message: error.message });
+  }
+};
+
 module.exports = {
   addUser,
   userLogin,
+  getUsers,
 };
