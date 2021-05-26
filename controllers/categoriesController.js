@@ -10,6 +10,16 @@ const addCategory = async (request, response) => {
   }
 };
 
+const getCategories = async (request, response) => {
+  try {
+    const result = await categoriesServices.getCategories();
+    return response.status(200).json(result);
+  } catch (error) {
+    return response.status(error.status).json({ message: error.message });
+  }
+};
+
 module.exports = {
   addCategory,
+  getCategories,
 };

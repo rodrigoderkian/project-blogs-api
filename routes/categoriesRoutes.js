@@ -9,5 +9,10 @@ router.post(
   authMiddleware.checkIfUserIsAuthenticated,
   categoriesController.addCategory,
 );
+router.get(
+  '/categories',
+  authMiddleware.checkIfUserIsAuthenticated,
+  categoriesController.getCategories,
+);
 
 module.exports = router;
