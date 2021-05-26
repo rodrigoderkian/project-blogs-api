@@ -30,8 +30,15 @@ const getUsers = async () => {
   return result;
 };
 
+const getUserById = async (id) => {
+  const result = await User.findOne({ where: { id } });
+  validationHelpers.checkIfUserIdExist(result);
+  return result;
+};
+
 module.exports = {
   addUser,
   userLogin,
   getUsers,
+  getUserById,
 };

@@ -76,6 +76,15 @@ const checkIfEmailAndPasswordIsEmpty = (email, password) => {
   }
 };
 
+const checkIfUserIdExist = (id) => {
+  if (!id) {
+    throw new CustomError({
+      status: 404,
+      message: 'User does not exist',
+    });
+  }
+};
+
 module.exports = {
   checkIfDisplayNameHave8Chars,
   checkIfEmailIsValid,
@@ -84,4 +93,5 @@ module.exports = {
   checkIfEmailAndPasswordExist,
   checkIfUserExist,
   checkIfEmailAndPasswordIsEmpty,
+  checkIfUserIdExist,
 };

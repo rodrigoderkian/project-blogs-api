@@ -34,8 +34,19 @@ const getUsers = async (request, response) => {
   }
 };
 
+const getUserById = async (request, response) => {
+  const { id } = request.params;
+  try {
+    const result = await userServices.getUserById(id);
+    return response.status(200).json(result);
+  } catch (error) {
+    return response.status(error.status).json({ message: error.message });
+  }
+};
+
 module.exports = {
   addUser,
   userLogin,
   getUsers,
+  getUserById,
 };

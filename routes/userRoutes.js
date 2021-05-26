@@ -10,6 +10,11 @@ router.get(
   userController.getUsers,
 );
 router.post('/user', userController.addUser);
+router.get(
+  '/user/:id',
+  authMiddleware.checkIfUserIsAuthenticated,
+  userController.getUserById,
+);
 router.post('/login', userController.userLogin);
 
 module.exports = router;
