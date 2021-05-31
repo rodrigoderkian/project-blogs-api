@@ -1,7 +1,7 @@
 const jwt = require('jsonwebtoken');
 require('dotenv').config();
 
-const key = process.env.JWT_SECRET;
+const key = process.env.JWT_SECRET || 'senhasupersecreta';
 
 const tokenIsValid = (token) => {
   try {

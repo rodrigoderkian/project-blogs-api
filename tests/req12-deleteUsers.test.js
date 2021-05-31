@@ -3,7 +3,7 @@ const shell = require('shelljs');
 
 const url = 'http://localhost:3000';
 
-describe('12 - Sua aplicação deve ter o endpoint DELETE `/user/me`', () => {
+describe.skip('12 - Sua aplicação deve ter o endpoint DELETE `/user/me`', () => {
   beforeEach(() => {
     shell.exec('npx sequelize-cli db:drop');
     shell.exec('npx sequelize-cli db:create && npx sequelize-cli db:migrate $');
@@ -13,11 +13,10 @@ describe('12 - Sua aplicação deve ter o endpoint DELETE `/user/me`', () => {
   it('Será validado que é possível excluir meu usuário com sucesso', async () => {
     let token;
     await frisby
-      .post(`${url}/login`,
-        {
-          email: 'lewishamilton@gmail.com',
-          password: '123456',
-        })
+      .post(`${url}/login`, {
+        email: 'lewishamilton@gmail.com',
+        password: '123456',
+      })
       .expect('status', 200)
       .then((response) => {
         const { body } = response;

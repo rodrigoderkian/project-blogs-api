@@ -13,7 +13,6 @@ const addPost = async (title, content, categoryIds, email) => {
     published: Date.now(),
     updated: Date.now(),
   });
-  console.log(dataValues.id);
   categoryIds.forEach(async (categoryId) => {
     await PostCategory.create({ postId: dataValues.id, categoryId });
   });
@@ -24,7 +23,7 @@ const getPosts = async () => {
   const result = await BlogPost.findAll({
     include: [
       { model: User, as: 'user', attributes: { exclude: ['password'] } },
-      { model: Category, as: 'categories' },
+      { model: Category, as: 'categories', through: { attributes: [] } },
     ],
   });
   return result;
