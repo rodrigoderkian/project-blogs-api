@@ -3,8 +3,6 @@ const { validationHelpers } = require('../helpers');
 
 const addPost = async (title, content, categoryIds, email) => {
   const { id } = await User.findOne({ where: { email } });
-  console.log('CHEGOU AQUI');
-  console.log(PostsCategory);
   validationHelpers.checkIfDataExist(title, content, categoryIds);
   const categories = await Category.findAll({ where: { id: categoryIds } });
   validationHelpers.checkIfCategoryAlreadyExist(categories, categoryIds);
