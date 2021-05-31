@@ -5,8 +5,8 @@ const key = process.env.JWT_SECRET;
 
 const tokenIsValid = (token) => {
   try {
-    jwt.verify(token, key);
-    return true;
+    const result = jwt.verify(token, key);
+    return result;
   } catch (error) {
     return false;
   }

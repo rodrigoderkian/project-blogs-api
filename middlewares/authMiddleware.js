@@ -7,6 +7,7 @@ const checkIfUserIsAuthenticated = (request, response, next) => {
     return response.status(401).json({ message: 'Token not found' });
   }
   if (validateToken.tokenIsValid(token)) {
+    request.email = validateToken.tokenIsValid(token);
     return next();
   }
 

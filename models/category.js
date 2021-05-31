@@ -5,7 +5,7 @@ const Category = (sequelize, DataTypes) => {
       name: DataTypes.STRING,
     },
     // //createdAt e updatedAt estavam dando erro nos seeds, resolvi tirar, e passou no req2
-    { timestamps: false },
+    { timestamps: false, tableName: 'Categories' },
   );
 
   return category;

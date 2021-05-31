@@ -94,6 +94,43 @@ const checkIfNameExist = (name) => {
   }
 };
 
+const checkIfDataExist = (title, content, categoryIds) => {
+  if (title === undefined) {
+    throw new CustomError({
+      status: 400,
+      message: '"title" is required',
+    });
+  }
+  if (content === undefined) {
+    throw new CustomError({
+      status: 400,
+      message: '"content" is required',
+    });
+  }
+  if (categoryIds === undefined) {
+    throw new CustomError({
+      status: 400,
+      message: '"categoryIds" is required',
+    });
+  }
+};
+
+const optimizeReturn = (data) => ({
+  id: data.id,
+  userId: data.userId,
+  title: data.title,
+  content: data.content,
+});
+
+const checkIfCategoryAlreadyExist = (categories, categoryIds) => {
+  if (categories.length !== categoryIds.length) {
+    throw new CustomError({
+      status: 400,
+      message: '"categoryIds" not found',
+    });
+  }
+};
+
 module.exports = {
   checkIfDisplayNameHave8Chars,
   checkIfEmailIsValid,
@@ -104,4 +141,7 @@ module.exports = {
   checkIfEmailAndPasswordIsEmpty,
   checkIfUserIdExist,
   checkIfNameExist,
+  checkIfDataExist,
+  optimizeReturn,
+  checkIfCategoryAlreadyExist,
 };

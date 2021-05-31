@@ -1,6 +1,7 @@
 const express = require('express');
 const { userRoutes } = require('./routes');
 const { categoriesRoutes } = require('./routes');
+const { postRoutes } = require('./routes');
 
 const app = express();
 
@@ -15,3 +16,4 @@ app.get('/', (request, response) => {
 
 app.use(userRoutes);
 app.use(categoriesRoutes);
+app.use(postRoutes);
