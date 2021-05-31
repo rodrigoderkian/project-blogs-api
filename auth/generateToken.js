@@ -1,7 +1,7 @@
 const jwt = require('jsonwebtoken');
 require('dotenv').config();
 
-const password = process.env.JWT_SECRET;
+const password = process.env.JWT_SECRET || 'senhasupersecreta';
 
 const create = (name, email) => {
   const userObj = {

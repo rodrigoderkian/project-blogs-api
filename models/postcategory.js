@@ -11,6 +11,7 @@ const PostCategory = (sequelize, _DataTypes) => {
       as: 'categories',
       through: postCategory,
       foreignKey: 'postId',
+      otherKey: 'categoryId',
     });
   };
 
