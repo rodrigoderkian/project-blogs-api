@@ -1,7 +1,10 @@
-const PostCategory = (sequelize, _DataTypes) => {
+const PostsCategory = (sequelize, DataTypes) => {
   const postCategory = sequelize.define(
     'PostsCategory',
-    {},
+    {
+      categoryId: { type: DataTypes.INTEGER, primaryKey: true },
+      postId: { type: DataTypes.INTEGER, primareyKey: true },
+    },
     // //createdAt e updatedAt estavam dando erro nos seeds, resolvi tirar, e passou no req2
     { timestamps: false },
   );
@@ -18,4 +21,4 @@ const PostCategory = (sequelize, _DataTypes) => {
   return postCategory;
 };
 
-module.exports = PostCategory;
+module.exports = PostsCategory;
