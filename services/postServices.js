@@ -1,4 +1,4 @@
-const { User, BlogPost, PostCategory, Category } = require('../models');
+const { User, BlogPost, Category } = require('../models');
 const { validationHelpers } = require('../helpers');
 
 const addPost = async (title, content, categoryIds, email) => {
