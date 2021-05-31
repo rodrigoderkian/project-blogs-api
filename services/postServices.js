@@ -14,9 +14,9 @@ const addPost = async (title, content, categoryIds, email) => {
     updated: Date.now(),
   });
   console.log(dataValues.id);
-  categoryIds.forEach(async (categoryId) => {
-    await PostCategory.create({ postId: dataValues.id, categoryId });
-  });
+  // categoryIds.forEach(async (categoryId) => {
+  //   await PostCategory.create({ postId: dataValues.id, categoryId });
+  // });
   return validationHelpers.optimizeReturn(dataValues);
 };
 
